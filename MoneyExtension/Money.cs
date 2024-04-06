@@ -9,13 +9,16 @@ public static class Money
             return 0;
         }
 
-        var text = amount.ToString("N2").Replace(",","").Replace(".","");
-        if(string.IsNullOrEmpty(text))
+        var value = amount
+            .ToString("N2")
+            .Replace(",","")
+            .Replace(".","");
+        if(string.IsNullOrEmpty(value))
         {
             return 0;
         }
 
-        int.TryParse(text, out var cents);
+        int.TryParse(value, out var cents);
         return cents;
     }
 
